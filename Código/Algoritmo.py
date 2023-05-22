@@ -18,6 +18,10 @@ def limpa_grafo(g):
     for v in g.getVertices():
         v.d = float('inf')
 
+#Faz uma simples busca em largura salvando os passos
+def CalculaSequenciaCritica(grafo,começo, final):
+    print(começo.id, final.id)
+    
 
 #Lê o arquivo com todas as diciplinas e seus pré-requisitos
 arquivo_diciplinas = open("DiciplinasCIC.txt")
@@ -60,19 +64,27 @@ grafo0 = copy.deepcopy(grafo)
 
 #Define um possível caminho crítico
 n_m_apc = 0
+name_max_apc = ""
 apc = (dijkstra(grafo, grafo.getVertex("CIC0004")))
 for m in apc:
     if n_m_apc <= apc[m].d and apc[m].d != float('inf'):
         n_m_apc = apc[m].d
+        name_max_apc = apc[m].id
+#Encontra a sequencia em busca em Largura
+CalculaSequenciaCritica(grafo, grafo.getVertex("CIC0004"), grafo.getVertex(name_max_apc))
 
 limpa_grafo(grafo)
 
 c1  = (dijkstra(grafo, grafo.getVertex("MAT0025")))
 
 n_m_c1 = 0
+name_max_c1 = ""
 for m in c1:
     if (n_m_c1<= c1[m].d) and c1[m].d != float('inf'):
         n_m_c1 = c1[m].d
+        name_max_c1 = c1[m].id
+
+CalculaSequenciaCritica(grafo, grafo.getVertex("MAT0025"), grafo.getVertex(name_max_c1))
 
 
 limpa_grafo(grafo)
