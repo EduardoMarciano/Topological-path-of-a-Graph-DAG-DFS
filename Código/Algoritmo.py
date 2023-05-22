@@ -41,7 +41,8 @@ def CalculaSequenciaCritica(grafo,começo, final, best):
                     fila.append(nbr)
 
                     if nbr.id == final.id:
-                        return sequencia.append(nbr.id)
+                        sequencia.append(nbr.id)
+                        return sequencia
                 
 
             
@@ -55,7 +56,7 @@ arquivo_diciplinas = open("DiciplinasCIC.txt")
 materias = arquivo_diciplinas.read().split("\n")
 
 #Embaralha as matérias para simular um ambiente mais realista
-#random.shuffle(materias)
+random.shuffle(materias)
 
 #Começo efeitvo do código
 grafo = Graph()
@@ -104,10 +105,9 @@ sequencia_apc = CalculaSequenciaCritica(copy.deepcopy(grafo),grafo.getVertex("CI
 
 limpa_grafo(grafo)
 
-c1  = (dijkstra(grafo, grafo.getVertex("MAT0025")))
-
 n_m_c1 = 0
 name_max_c1 = ""
+c1  = (dijkstra(grafo, grafo.getVertex("MAT0025")))
 for m in c1:
     if (n_m_c1<= c1[m].d) and c1[m].d != float('inf'):
         n_m_c1 = c1[m].d
@@ -115,7 +115,7 @@ for m in c1:
 
 #Encontra a sequencia em busca em Largura
 limpa_grafo(grafo)
-sequencia_c1 = CalculaSequenciaCritica(copy.deepcopy(grafo), grafo.getVertex("MAT0025"), grafo.getVertex(name_max_c1), n_m_c1)
+sequencia_c1 = CalculaSequenciaCritica(copy.deepcopy(grafo), grafo.getVertex("MAT0025"), grafo.getVertex("MAT0053"), n_m_c1)
 
 
 limpa_grafo(grafo)
@@ -134,6 +134,7 @@ while grafo.vertices_id != []:
         grafo.vertices.append(v)
 
 #Nome do curso
+print("--------------------------------------")
 print("Bacharelado em Ciência da Computação:")
 print()
 print(f"Grafo das matérias do curso:")
@@ -143,18 +144,27 @@ print()
 imprimi_grafo(grafo0)
 
 #Caminho Cŕtico
-print(f"O caminho crítico começando por apc tem {n_m_apc+1} matérias")
-print(f"Com sequência: ")
+print(f"O caminho crítico começando por apc tem {n_m_apc+1} matérias.")
+print(f"Com sequência: ", end = "")
 
-print(sequencia_apc)
+for m in sequencia_apc[:len(sequencia_apc)-1]:
+    print(f"{m} -> ", end = "")
+print(f"{sequencia_apc[-1]}.", end = "")
+
+print()
 print()
 
 print(f"O caminho crítico começando por cáclculo 1 tem {n_m_c1+1} matérias")
-print(f"COm sequência: ")
+print(f"Com sequência: ")
+for m in sequencia_c1[:len(sequencia_c1)-1]:
+    print(f"{m} -> ", end = "")
+print(f"{sequencia_c1[-1]}.", end = "")
 
 print()
+print()
+
 #Imprime o caminho topológico encontrado
 imprimi_caminho_topologico(caminho_topoligco)
 
 #Imprimindo o grafo com o auxílio das bibliotecas networkx e matplotlib
-#imprime_graficamente(grafo0)
+imprime_graficamente(grafo0)
