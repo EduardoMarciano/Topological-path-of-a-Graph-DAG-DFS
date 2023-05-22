@@ -12,15 +12,42 @@ def calculaDependencia(grafo, v):
     for adj in v.incidencia:
         if adj not in grafo.vertices_id:
             v.incidencia.remove(adj)
-
+    
     v.dependencia = len(v.incidencia)
 def limpa_grafo(g):
     for v in g.getVertices():
         v.d = float('inf')
+        v.parent=None
+        v.finished=False
 
 #Faz uma simples busca em largura salvando os passos
-def CalculaSequenciaCritica(grafo,começo, final):
-    print(começo.id, final.id)
+def CalculaSequenciaCritica(grafo,começo, final, best):
+    fila = [começo]
+    sequencia = []  
+  
+    while len(fila) != 0:
+        v = fila.pop(0)
+
+        limpa_grafo(grafo)
+        dic = dijkstra(grafo, v)
+
+        if dic[final.id].d != float('inf') and dic[final.id].d == best:
+                best -= 1
+                sequencia.append(v.id)
+                
+                fila = []
+                for nbr in v.getSaida():
+                    nbr = grafo.getVertex(nbr[0])
+                    fila.append(nbr)
+
+                    if nbr.id == final.id:
+                        return sequencia.append(nbr.id)
+                
+
+            
+    return sequencia
+
+
     
 
 #Lê o arquivo com todas as diciplinas e seus pré-requisitos
@@ -28,7 +55,7 @@ arquivo_diciplinas = open("DiciplinasCIC.txt")
 materias = arquivo_diciplinas.read().split("\n")
 
 #Embaralha as matérias para simular um ambiente mais realista
-random.shuffle(materias)
+#random.shuffle(materias)
 
 #Começo efeitvo do código
 grafo = Graph()
@@ -59,7 +86,7 @@ for v in grafo.getVertices():
         x.addSaida(v.id, 1)
 
 #Ordena a lista de Vêrtices pelo grau 
-grafo.vertices = sorted(grafo.getVertices(), key=lambda Vertex: Vertex.dependencia)
+#grafo.vertices = sorted(grafo.getVertices(), key=lambda Vertex: Vertex.dependencia)
 grafo0 = copy.deepcopy(grafo)
 
 #Define um possível caminho crítico
@@ -70,8 +97,10 @@ for m in apc:
     if n_m_apc <= apc[m].d and apc[m].d != float('inf'):
         n_m_apc = apc[m].d
         name_max_apc = apc[m].id
+
 #Encontra a sequencia em busca em Largura
-CalculaSequenciaCritica(grafo, grafo.getVertex("CIC0004"), grafo.getVertex(name_max_apc))
+limpa_grafo(grafo)
+sequencia_apc = CalculaSequenciaCritica(copy.deepcopy(grafo),grafo.getVertex("CIC0004"), grafo.getVertex(name_max_apc), n_m_apc)
 
 limpa_grafo(grafo)
 
@@ -84,7 +113,9 @@ for m in c1:
         n_m_c1 = c1[m].d
         name_max_c1 = c1[m].id
 
-CalculaSequenciaCritica(grafo, grafo.getVertex("MAT0025"), grafo.getVertex(name_max_c1))
+#Encontra a sequencia em busca em Largura
+limpa_grafo(grafo)
+sequencia_c1 = CalculaSequenciaCritica(copy.deepcopy(grafo), grafo.getVertex("MAT0025"), grafo.getVertex(name_max_c1), n_m_c1)
 
 
 limpa_grafo(grafo)
@@ -115,15 +146,15 @@ imprimi_grafo(grafo0)
 print(f"O caminho crítico começando por apc tem {n_m_apc+1} matérias")
 print(f"Com sequência: ")
 
-#imprime_sequencia("CIC0004")
+print(sequencia_apc)
 print()
 
 print(f"O caminho crítico começando por cáclculo 1 tem {n_m_c1+1} matérias")
 print(f"COm sequência: ")
-#imprime_sequencia("MAT0025")
+
 print()
 #Imprime o caminho topológico encontrado
 imprimi_caminho_topologico(caminho_topoligco)
 
 #Imprimindo o grafo com o auxílio das bibliotecas networkx e matplotlib
-imprime_graficamente(grafo0)
+#imprime_graficamente(grafo0)
