@@ -4,7 +4,6 @@ import heapq
 def dijkstra(graph,root):
   nodes={}
 
-
   for v in graph.vertices:
       nodes[v.id]= v
 

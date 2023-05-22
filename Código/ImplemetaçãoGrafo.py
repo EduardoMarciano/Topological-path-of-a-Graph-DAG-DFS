@@ -51,4 +51,3 @@ class Vertex:
     
     def getSaida(self):
         return self.saida
-    

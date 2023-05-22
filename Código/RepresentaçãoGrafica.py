@@ -17,6 +17,3 @@ def imprime_graficamente(grafo):
     edge_labels = nx.get_edge_attributes(G, 'weight')
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
     plt.show()
-
-
-    

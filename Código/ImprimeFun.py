@@ -19,4 +19,3 @@ def imprimi_grafo(graph):
             print("<- Neighbor:", nbr)
         print()
         print("------------------------")
-        

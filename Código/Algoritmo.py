@@ -115,5 +115,3 @@ imprimi_caminho_topologico(caminho_topoligco)
 
 #Imprimindo o grafo com o auxílio das bibliotecas networkx e matplotlib
 imprime_graficamente(grafo0)
-
-
