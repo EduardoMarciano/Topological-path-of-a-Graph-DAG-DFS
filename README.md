@@ -4,7 +4,6 @@ Requisitos:
 
 	Python 3.10.6 ou superior.
 	Bibliotecas networkx e matplotlib.
-	Ex3: |- ~~(((p -> u) -> p) -> p)
 
 Comandos para instalar as Bibliotecas (Linux):
 
