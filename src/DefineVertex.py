@@ -6,9 +6,11 @@ def define_vertex(grafo, materias):
     
         materia = materia.split(":")
         texto = materia[0]
-        nome_materia = texto.split(" ")[0]
-    
-        grafo.addVertex(nome_materia)
+        
+        nome_materia = texto.split(" ")[2]
+        creditos = int(texto.split(" ")[0])
+
+        grafo.addVertex(nome_materia, creditos)
 
         define_incidencia(grafo, materia, nome_materia)
     
@@ -27,5 +29,7 @@ def define_saida(grafo):
     for v in grafo.getVertices():
         for adj in v.getIncidencia():
 
-            x = grafo.getVertex(adj)
-            x.addSaida(v.id, 1)
+            adj = grafo.getVertex(adj)
+            adj.addSaida(v.id, adj.creditos)
+
+            n = 0

@@ -5,9 +5,9 @@ class Graph:
         self.vertices = []
         self.vertices_id = []
         
-    def addVertex(self, v):
+    def addVertex(self, v, creditos):
 
-        newVertex = Vertex(v)
+        newVertex = Vertex(v, creditos)
         self.vertices.append(newVertex)
         self.vertices_id.append(newVertex.id)
     
@@ -21,8 +21,9 @@ class Graph:
         return self.vertices
         
 class Vertex:
-    def __init__(self,num):
+    def __init__(self, num, creditos):
         self.id = num
+        self.creditos = creditos
         self.saida = []
         self.incidencia = []
         #Numero de matérias com pré-requisitos diretos

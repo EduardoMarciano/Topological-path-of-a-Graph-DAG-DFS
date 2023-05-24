@@ -39,7 +39,7 @@ print(f"Grafo das matérias do curso:")
 print()
 
 
-print_grafo(grafo)
+print_grafo(copy.deepcopy(grafo))
 
 
 print(f"O caminho crítico começando por apc tem {len(sequencia_apc)} matérias.")
@@ -60,4 +60,4 @@ print()
 
 print_caminho_topologico(caminho_topoligco)
 
-print_graficamente(grafo)
+print_graficamente(copy.deepcopy(grafo))

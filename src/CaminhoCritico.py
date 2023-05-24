@@ -28,7 +28,6 @@ def CalculaSequenciaCritica(grafo,root):
     final, best = calcula_tamanho_caminho_critico(grafo, root.id)
     limpa_grafo(grafo)
 
-    best1 = 5
     final = grafo.getVertex(final)
 
     fila = [root]
@@ -41,7 +40,8 @@ def CalculaSequenciaCritica(grafo,root):
         dic = dijkstra(grafo, v)
 
         if dic[final.id].d != float('inf') and dic[final.id].d == best:
-                best -= 1
+                best = best - v.creditos
+                
                 sequencia.append(v.id)
                 
                 fila = []
