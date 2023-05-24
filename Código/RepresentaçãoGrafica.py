@@ -1,9 +1,10 @@
+#Função para imprimir a representação gráfica
+
 import networkx 
 import matplotlib.pyplot
-from ImplemetaçãoGrafo import Graph, Vertex
 
-def imprime_graficamente(grafo):
-    # Criando um objeto do tipo DiGraph (grafo direcionado)
+def print_graficamente(grafo):
+    # Cria um objeto do tipo DiGraph (grafo direcionado)
     G = networkx.DiGraph()
 
     # Adicionando as arestas ao objeto do tipo DiGraph
@@ -16,4 +17,5 @@ def imprime_graficamente(grafo):
     networkx.draw_networkx(G, pos)
     edge_labels = networkx.get_edge_attributes(G, 'weight')
     networkx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
+    
     matplotlib.pyplot.show()

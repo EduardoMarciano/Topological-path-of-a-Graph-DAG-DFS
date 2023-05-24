@@ -1,4 +1,5 @@
-# From https://builtin.com/software-engineering-perspectives/dijkstras-algorithm
+# Implementação do algorítimo de Dijktra com a utilização de fila de prioridade.
+
 import heapq
 
 def dijkstra(graph,root):

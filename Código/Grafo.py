@@ -1,6 +1,4 @@
-#  adjGraph
-#  Created by Brad Miller on 2005-02-24.
-#  Copyright (c) 2005 Brad Miller, David Ranum, Luther College. All rights reserved.
+# Implementação do Grafo e do Vêrtice com a utilização de POO  
 
 class Graph:
     def __init__(self):
