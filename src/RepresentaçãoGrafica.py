@@ -1,5 +1,4 @@
 #Função para imprimir a representação gráfica
-
 import networkx 
 import matplotlib.pyplot
 
