@@ -1,12 +1,11 @@
-import random
 import copy
+import random
 from Grafo import Graph
-from PrintFunctions import print_grafo, print_sequencia, print_caminho_topologico
-from RepresentaçãoGrafica import print_graficamente
 from DefineVertex import define_vertex
-from CaminhoCritico import CalculaSequenciaCritica
 from Topologia import define_caminho_topologico
-
+from CaminhoCritico import CalculaSequenciaCritica
+from RepresentaçãoGrafica import print_graficamente
+from PrintFunctions import print_grafo, print_sequencia, print_caminho_topologico
 
 #Lê o arquivo com todas as diciplinas e seus pré-requisitos
 arquivo_diciplinas = open("DiciplinasCIC.txt")
