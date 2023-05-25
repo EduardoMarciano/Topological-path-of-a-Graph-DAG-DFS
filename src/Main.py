@@ -12,7 +12,7 @@ from Topologia import define_caminho_topologico
 arquivo_diciplinas = open("DiciplinasCIC.txt")
 materias = arquivo_diciplinas.read().split("\n")
 
-#Embaralha as matérias para simular um ambiente mais realist
+#Embaralha as matérias para simular um ambiente mais realista
 random.shuffle(materias)
 
 #Começo efeitvo do código
