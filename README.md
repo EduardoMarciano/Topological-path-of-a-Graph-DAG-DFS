@@ -1,4 +1,4 @@
-# Análise Topológica de Grafos Direcionados Acíclicos (DAG)
+# Ordenação Topológica Kahn’s (BFS)
 
 ## Descrição do exemplo de utilização:
 ### Análise dos caminhos críticos (CPM) das disciplinas do curso Ciência da Computação UnB-2023. 
