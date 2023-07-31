@@ -10,6 +10,11 @@
  	Python 3.10.6 ou superior.
 	Bibliotecas networkx e matplotlib.
 
+## Intalação Python 3:
+
+	sudo apt install python3
+	sudo apt install python3-pip
+
 ## Instalção das Bibliotecas:
 
 	pip install networkx
