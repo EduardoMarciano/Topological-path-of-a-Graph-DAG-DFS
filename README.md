@@ -1,4 +1,4 @@
-# Algoritmo de Caminho Crítico(CPM)
+# Algoritmo de Ordenação Topológica Kahn’s (BFS)
 
 ## Descrição do exemplo de utilização:
 ### Análise de um caminho topológico das disciplinas do curso Ciência da Computação UnB-2023/1. 
