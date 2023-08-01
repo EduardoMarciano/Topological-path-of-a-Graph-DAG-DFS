@@ -1,5 +1,4 @@
 #Define os Vêrtices, sua incidência e saída a partir do arquivo .txt DiciplinasCIC
-
 def define_vertex(grafo, materias):
 
     for materia in materias:

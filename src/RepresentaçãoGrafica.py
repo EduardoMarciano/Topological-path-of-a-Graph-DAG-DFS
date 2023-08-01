@@ -12,7 +12,7 @@ def print_graficamente(grafo):
             G.add_edge(vertex.id, edge[0], weight=edge[1])
 
     # Plotando o grafo
-    pos = networkx.spring_layout(G, seed = 450)
+    pos = networkx.spring_layout(G, seed = 45)
     networkx.draw_networkx(G, pos)
     edge_labels = networkx.get_edge_attributes(G, 'weight')
     networkx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)

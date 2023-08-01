@@ -1,5 +1,4 @@
 # Implementação do Grafo e do Vêrtice com a utilização de POO  
-
 class Graph:
     def __init__(self):
         self.vertices = []
@@ -16,7 +15,6 @@ class Graph:
             if v.id == n:
                 return v
 
-
     def getVertices(self):
         return self.vertices
         
@@ -28,12 +26,6 @@ class Vertex:
         self.incidencia = []
         #Numero de matérias com pré-requisitos diretos
         self.dependencia = 0
-
-        #Atributos para implementação do Dikstra
-        self.d=float('inf')
-        self.parent=None
-        self.finished=False
-
     
     def addSaida(self,nbr, peso):
         self.saida.append((nbr, peso))

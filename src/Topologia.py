@@ -1,5 +1,4 @@
 # Funções para definir o caminho topológico de um grafo.
-
 #Calcula o número de pré-requisitos diretos em cada matéria.
 def calculaDependencia(grafo, v):
     
