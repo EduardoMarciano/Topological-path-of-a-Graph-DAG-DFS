@@ -1,4 +1,4 @@
-# Algoritmo de Ordenação Topológica Kahn’s (BFS)
+# Algoritmo de Ordenação Topológica Kahn’s (DFS)
 
 ## Descrição do exemplo de utilização:
 ### Geração de possíveis caminhos topológicos das disciplinas do curso Ciência da Computação UnB-2023/1. 
